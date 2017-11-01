@@ -5,13 +5,19 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Senha</string>
-    <string name="action_sign_in">Entrar</string>
+    <string name="action_sign_in">Registrar</string>
     <string name="action_register">Ainda não é cadastrado? Registre-se aqui</string>
-    <string name="action_sign_in_short">Entrar</string>
+    <string name="action_login">Entrar</string>
     <string name="error_invalid_email">Este email é invalido</string>
     <string name="error_invalid_password">Senha invalida (Deve conter mais de 8 digitos, alem de números e letras)</string>
     <string name="error_incorrect_password">Senha incorreta</string>
     <string name="error_field_required">Campo obrigatório</string>
 
     <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="enter_your_email">Insira um email</string>
+    <string name="enter_your_password">Insira uma senha</string>
+    <string name="register_password">Senha</string>
+    <string name="register_password_again">Insira a senha novamente</string>
+    <string name="successfully_registred">Bem vindo!</string>
+    <string name="regristration_error">Não foi possivel realizar o cadastro, por favor tente novamente</string>
 </resources>
