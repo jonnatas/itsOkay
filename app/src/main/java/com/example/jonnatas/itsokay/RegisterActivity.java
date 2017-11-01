@@ -17,9 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
+public class RegisterActivity extends AppCompatActivity {
 
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth mAuth;
     EditText editTextLogin;
     EditText editTextPassword;
     Button buttonRegister;
@@ -31,16 +31,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        editTextLogin = (EditText) findViewById(R.id.editTextLogin);
+        mAuth = FirebaseAuth.getInstance();
+
+        editTextLogin = (EditText) findViewById(R.id.editTextRegister);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         buttonCancel = (Button) findViewById(R.id.buttonCancel);
         progressLogin = new ProgressDialog(this);
-        buttonRegister.setOnClickListener(this);
+
     }
 
-    private void registerUser(){
+    public void registerUser(View view){
         String email = editTextLogin.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
         if (TextUtils.isEmpty(email)){
@@ -53,7 +54,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
         progressLogin.setMessage(getString(R.string.action_loading));
         progressLogin.show();
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -75,8 +76,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         startActivity(intent);
     }
 
-    @Override
-    public void onClick(View v) {
-        registerUser();
+    public void singin(View view){
+        String email = editTextLogin.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+        if (TextUtils.isEmpty(email)){
+            Toast.makeText(this, R.string.enter_your_email, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)){
+            Toast.makeText(this, R.string.enter_your_password, Toast.LENGTH_SHORT).show();
+            return;
+        }
     }
+
 }

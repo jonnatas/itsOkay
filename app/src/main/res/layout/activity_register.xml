@@ -7,7 +7,7 @@
     tools:context="com.example.jonnatas.itsokay.RegisterActivity">
 
     <EditText
-        android:id="@+id/editTextLogin"
+        android:id="@+id/editTextRegister"
         android:layout_width="@dimen/editTextWidth"
         android:layout_height="@dimen/editTextHeigth"
         android:ems="10"
@@ -23,7 +23,7 @@
         app:layout_constraintHorizontal_bias="0.503" />
 
     <EditText
-        android:id="@+id/editPassword"
+        android:id="@+id/editRegisterPassword"
         android:layout_width="@dimen/editTextWidth"
         android:layout_height="@dimen/editTextHeigth"
         android:layout_marginLeft="8dp"
@@ -34,7 +34,7 @@
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRegister"
         tools:text="@string/prompt_password" />
 
     <Button
@@ -53,26 +53,27 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editRegisterPassword" />
 
     <Button
-        android:id="@+id/buttonRegister"
+        android:id="@+id/buttonSingin"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="@dimen/buttonWith"
         android:layout_height="@dimen/buttonHeigth"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="29dp"
         android:background="@android:color/holo_blue_bright"
         android:fontFamily="sans-serif-condensed"
+        android:onClick="singin"
         android:text="@string/action_sign_in"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textColorLink="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.782"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword"
-        app:layout_constraintHorizontal_bias="0.782" />
+        app:layout_constraintTop_toBottomOf="@+id/editRegisterPassword" />
 
 </android.support.constraint.ConstraintLayout>

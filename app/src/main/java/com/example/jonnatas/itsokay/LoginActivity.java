@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
 
         editTextLogin = (EditText) findViewById(R.id.editTextLogin);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        buttonLogin = (Button) findViewById(R.id.buttonLoggin);
+        buttonRegister = (Button) findViewById(R.id.buttonRegister);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -66,7 +68,6 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        progressLogin.setMessage(getString(R.string.action_loading));
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -78,10 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(LoginActivity.this, R.string.regristration_error, Toast.LENGTH_SHORT).show();
                         }
-                        progressLogin.dismiss();
                     }
                 });
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 }
