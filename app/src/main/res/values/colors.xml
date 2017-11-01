@@ -3,4 +3,7 @@
     <color name="colorPrimary">#02ddff</color>
     <color name="colorPrimaryDark">#03a9f4</color>
     <color name="colorAccent">#ff4081</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="questionsBack">#62f0ff</color>
 </resources>

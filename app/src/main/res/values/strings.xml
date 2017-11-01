@@ -23,4 +23,11 @@
     <string name="regristration_error">Não foi possivel realizar o cadastro, por favor tente novamente</string>
     <string name="action_cancel">Cancelar</string>
     <string name="button_logout">Sair</string>
+
+    <string name="title_activity_question_register">Olá</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="how_are_you">Quem é você?</string>
+    <string name="name">Qual o seu nome?</string>
+    <string name="date_of_bith">Qual a sua data de nascimento?</string>
 </resources>

@@ -7,4 +7,6 @@
     <dimen name="buttonHeigth">45dp</dimen>
     <dimen name="editTextHeigth">50dp</dimen>
     <dimen name="editTextWidth">266dp</dimen>
+    <dimen name="text_with">275dp</dimen>
+    <dimen name="text_heigth">50dp</dimen>
 </resources>
