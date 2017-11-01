@@ -6,6 +6,7 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Senha</string>
     <string name="action_sign_in">Registrar</string>
+    <string name="action_loading">Estamos quase lá!</string>
     <string name="action_register">Ainda não é cadastrado? Registre-se aqui</string>
     <string name="action_login">Entrar</string>
     <string name="error_invalid_email">Este email é invalido</string>
@@ -20,4 +21,6 @@
     <string name="register_password_again">Insira a senha novamente</string>
     <string name="successfully_registred">Bem vindo!</string>
     <string name="regristration_error">Não foi possivel realizar o cadastro, por favor tente novamente</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="button_logout">Sair</string>
 </resources>

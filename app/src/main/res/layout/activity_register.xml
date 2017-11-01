@@ -23,41 +23,46 @@
         app:layout_constraintHorizontal_bias="0.503" />
 
     <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="@dimen/editTextWidth"
-        android:layout_height="@dimen/editTextHeigth"
-        android:ems="10"
-        android:hint="@string/register_password"
-        android:inputType="textPassword"
-        tools:text="@string/prompt_password"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/editTextLogin"
-        android:layout_marginRight="5dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.493" />
-
-    <EditText
-        android:id="@+id/editPasswordAgain"
+        android:id="@+id/editPassword"
         android:layout_width="@dimen/editTextWidth"
         android:layout_height="@dimen/editTextHeigth"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="@string/register_password_again"
+        android:hint="@string/register_password"
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLogin"
         tools:text="@string/prompt_password" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="103dp"
+        android:layout_height="29dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="34dp"
+        android:background="@android:color/holo_red_light"
+        android:fontFamily="sans-serif-condensed"
+        android:onClick="registerCancel"
+        android:text="@string/action_cancel"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        android:textColorLink="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
 
     <Button
         android:id="@+id/buttonRegister"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="@dimen/buttonWith"
         android:layout_height="@dimen/buttonHeigth"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="26dp"
         android:background="@android:color/holo_blue_bright"
         android:fontFamily="sans-serif-condensed"
         android:text="@string/action_sign_in"
@@ -65,12 +70,9 @@
         android:textColorLink="@color/colorPrimary"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginTop="27dp"
-        app:layout_constraintTop_toBottomOf="@+id/editPasswordAgain"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.502" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword"
+        app:layout_constraintHorizontal_bias="0.782" />
 
 </android.support.constraint.ConstraintLayout>

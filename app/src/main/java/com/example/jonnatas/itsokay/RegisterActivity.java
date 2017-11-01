@@ -23,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     EditText editTextLogin;
     EditText editTextPassword;
     Button buttonRegister;
+    Button buttonCancel;
     ProgressDialog progressLogin;
 
     @Override
@@ -33,8 +34,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         firebaseAuth = FirebaseAuth.getInstance();
         editTextLogin = (EditText) findViewById(R.id.editTextLogin);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        editTextPassword = (EditText) findViewById(R.id.editPasswordAgain);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        buttonCancel = (Button) findViewById(R.id.buttonCancel);
         progressLogin = new ProgressDialog(this);
         buttonRegister.setOnClickListener(this);
     }
@@ -50,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this, R.string.enter_your_password, Toast.LENGTH_SHORT).show();
             return;
         }
-        progressLogin.setMessage(getString(R.string.action_register));
+        progressLogin.setMessage(getString(R.string.action_loading));
         progressLogin.show();
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -68,6 +69,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     }
                 });
     }
+
+    public void registerCancel(View view){
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View v) {
         registerUser();
