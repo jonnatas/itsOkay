@@ -65,7 +65,7 @@
         android:layout_marginTop="29dp"
         android:background="@android:color/holo_blue_bright"
         android:fontFamily="sans-serif-condensed"
-        android:onClick="singin"
+        android:onClick="registerUser"
         android:text="@string/action_sign_in"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textColorLink="@color/colorPrimary"

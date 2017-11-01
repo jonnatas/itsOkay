@@ -20,11 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    EditText editTextLogin;
-    EditText editTextPassword;
+    EditText editTextRegister;
+    EditText editRegisterPassword;
     Button buttonRegister;
     Button buttonCancel;
-    ProgressDialog progressLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +32,16 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        editTextLogin = (EditText) findViewById(R.id.editTextRegister);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextRegister = (EditText) findViewById(R.id.editTextRegister);
+        editRegisterPassword = (EditText) findViewById(R.id.editRegisterPassword);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         buttonCancel = (Button) findViewById(R.id.buttonCancel);
-        progressLogin = new ProgressDialog(this);
 
     }
 
     public void registerUser(View view){
-        String email = editTextLogin.getText().toString().trim();
-        final String password = editTextPassword.getText().toString().trim();
+        String email = editTextRegister.getText().toString().trim();
+        final String password = editRegisterPassword.getText().toString().trim();
         if (TextUtils.isEmpty(email)){
             Toast.makeText(this, R.string.enter_your_email, Toast.LENGTH_SHORT).show();
             return;
@@ -52,21 +50,18 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.enter_your_password, Toast.LENGTH_SHORT).show();
             return;
         }
-        progressLogin.setMessage(getString(R.string.action_loading));
-        progressLogin.show();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(RegisterActivity.this, R.string.successfully_registred, Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            intent.putExtra("nome", editTextLogin.getText().toString().trim());
+                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            intent.putExtra("email", editTextRegister.getText().toString().trim());
                             startActivity(intent);
                         } else {
                             Toast.makeText(RegisterActivity.this, R.string.regristration_error, Toast.LENGTH_SHORT).show();
                         }
-                        progressLogin.dismiss();
                     }
                 });
     }
@@ -76,17 +71,5 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void singin(View view){
-        String email = editTextLogin.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-        if (TextUtils.isEmpty(email)){
-            Toast.makeText(this, R.string.enter_your_email, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(password)){
-            Toast.makeText(this, R.string.enter_your_password, Toast.LENGTH_SHORT).show();
-            return;
-        }
-    }
 
 }

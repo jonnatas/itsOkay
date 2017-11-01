@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         TextView textViewName = (TextView) findViewById(R.id.textViewUserName);
         textViewName.setText(mAuth.getCurrentUser().getEmail().toString());
-        Button buttonLogout = (Button) findViewById(R.id.buttonLogout);
     }
 
     public void logout(View view){
