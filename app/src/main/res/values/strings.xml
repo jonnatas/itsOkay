@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">ItsOkay</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in">Registrar</string>
+    <string name="action_loading">Estamos quase lá!</string>
+    <string name="action_register">Ainda não é cadastrado? Registre-se aqui</string>
+    <string name="action_login">Entrar</string>
+    <string name="error_invalid_email">Este email é invalido</string>
+    <string name="error_invalid_password">Senha invalida (Deve conter mais de 8 digitos, alem de números e letras)</string>
+    <string name="error_incorrect_password">Senha incorreta</string>
+    <string name="error_field_required">Campo obrigatório</string>
+
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="enter_your_email">Insira um email</string>
+    <string name="enter_your_password">Insira uma senha</string>
+    <string name="register_password">Senha</string>
+    <string name="register_password_again">Insira a senha novamente</string>
+    <string name="successfully_registred">Bem vindo!</string>
+    <string name="regristration_error">Não foi possivel realizar o cadastro, por favor tente novamente</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="button_logout">Sair</string>
+
+    <string name="title_activity_question_register">Olá</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="how_are_you">Quem é você?</string>
+    <string name="name">Qual o seu nome?</string>
+    <string name="date_of_bith">Qual a sua data de nascimento?</string>
 </resources>
