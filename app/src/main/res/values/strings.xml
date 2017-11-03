@@ -30,4 +30,9 @@
     <string name="how_are_you">Quem é você?</string>
     <string name="name">Qual o seu nome?</string>
     <string name="date_of_bith">Qual a sua data de nascimento?</string>
+    <string name="love">Amor ao próximo</string>
+    <string name="fe">fe</string>
+    <string name="generosidade">Generosidade</string>
+    <string name="sabedoria">Sabedoria</string>
+    <string name="tolerancia">Tolerância</string>
 </resources>
