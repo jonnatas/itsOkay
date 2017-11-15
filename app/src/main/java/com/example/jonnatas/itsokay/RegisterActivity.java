@@ -12,15 +12,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.example.jonnatas.itsokay.model.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    EditText editTextRegister;
+    private  Usuario usuario;
+    EditText email;
     EditText editRegisterPassword;
     Button buttonRegister;
     Button buttonCancel;
@@ -32,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        editTextRegister = (EditText) findViewById(R.id.editTextRegister);
+        email = (EditText) findViewById(R.id.editTextRegister);
         editRegisterPassword = (EditText) findViewById(R.id.editRegisterPassword);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         buttonCancel = (Button) findViewById(R.id.buttonCancel);
@@ -40,8 +43,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void registerUser(View view){
-        String email = editTextRegister.getText().toString().trim();
+        usuario = new Usuario();
+        final String email = this.email.getText().toString().trim();
         final String password = editRegisterPassword.getText().toString().trim();
+
+        usuario.setEmail(email);
+
         if (TextUtils.isEmpty(email)){
             Toast.makeText(this, R.string.enter_your_email, Toast.LENGTH_SHORT).show();
             return;
@@ -50,15 +57,21 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.enter_your_password, Toast.LENGTH_SHORT).show();
             return;
         }
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            FirebaseUser user = task.getResult().getUser();
+                            usuario.setId(user.getUid());
+
                             Toast.makeText(RegisterActivity.this, R.string.successfully_registred, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                            intent.putExtra("email", editTextRegister.getText().toString().trim());
+                            intent.putExtra("email", email);
                             startActivity(intent);
+
                         } else {
                             Toast.makeText(RegisterActivity.this, R.string.regristration_error, Toast.LENGTH_SHORT).show();
                         }

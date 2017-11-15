@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.jonnatas.itsokay.config.ConfiguracaoFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -20,11 +21,12 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
     EditText editTextLogin;
     EditText editTextPassword;
     Button buttonLogin;
     Button buttonRegister;
+
+    private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
 
@@ -38,19 +40,19 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin = (Button) findViewById(R.id.buttonLoggin);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
 
-        mAuth = FirebaseAuth.getInstance();
+        mAuth = ConfiguracaoFirebase.getFirebaseAuth();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
+//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     Intent intent = new Intent(LoginActivity.this, QuestionRegisterActivity.class);
                     startActivity(intent);
                 } else {
                     Log.d("AUTH", "onAuthStateChanged:signed_out");
                 }
-
             }
         };
 

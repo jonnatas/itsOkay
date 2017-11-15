@@ -3,13 +3,16 @@ package com.example.jonnatas.itsokay;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jonnatas.itsokay.config.ConfiguracaoFirebase;
+import com.example.jonnatas.itsokay.model.Usuario;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,12 +33,11 @@ public class QuestionRegisterActivity extends AppCompatActivity {
     private TextView textViewGenerosidade;
     private TextView textViewSabedoria;
 
+    private EditText nascimento;
+    private EditText nome;
     // Get the user
-    private FirebaseAuth mAuth;
-
-    // Write a message to the database
-
-    DatabaseReference reference;
+    private FirebaseAuth mAuth = ConfiguracaoFirebase.getFirebaseAuth();
+    private Usuario usuario = new Usuario();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +53,6 @@ public class QuestionRegisterActivity extends AppCompatActivity {
         setSeekBarTolerancia();
         setSeekBarGenerosidade();
         setSeekBarSabedoria();
-
-        mAuth = FirebaseAuth.getInstance();
-
-        reference = ConfiguracaoFirebase.getFirebase();
-        reference.child("users").setValue(mAuth.getCurrentUser());
-
     }
 
     private void setSeekBarLove() {
@@ -66,6 +62,7 @@ public class QuestionRegisterActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
+                usuario.setAmor(progress);
             }
 
             @Override
@@ -85,6 +82,7 @@ public class QuestionRegisterActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
+                usuario.setFe(progress);
             }
 
             @Override
@@ -104,6 +102,7 @@ public class QuestionRegisterActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
+                usuario.setGenerosidade(progress);
             }
 
             @Override
@@ -123,6 +122,7 @@ public class QuestionRegisterActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
+                usuario.setSabedoria(progress);
             }
 
             @Override
@@ -142,6 +142,7 @@ public class QuestionRegisterActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
+                usuario.setTolerancia(progress);
             }
 
             @Override
@@ -168,9 +169,16 @@ public class QuestionRegisterActivity extends AppCompatActivity {
         textViewSabedoria = (TextView) findViewById(R.id.textViewSabedoria);
         textViewGenerosidade = (TextView) findViewById(R.id.textViewGenerosidade);
         textViewFe = (TextView) findViewById(R.id.textViewFe);
+
+        nome = (EditText) findViewById(R.id.editTextName);
+        nascimento = (EditText) findViewById(R.id.editTextNasc);
     }
 
     public void confirmRegister(View view){
-
+        FirebaseUser user = mAuth.getCurrentUser();
+        usuario.setId(user.getUid());
+        usuario.setNome(nome.getText().toString());
+        usuario.setDate(nascimento.getText().toString());
+        usuario.salvar();
     }
 }
