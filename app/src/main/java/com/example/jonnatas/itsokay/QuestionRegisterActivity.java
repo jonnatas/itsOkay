@@ -1,5 +1,6 @@
 package com.example.jonnatas.itsokay;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -180,5 +181,8 @@ public class QuestionRegisterActivity extends AppCompatActivity {
         usuario.setNome(nome.getText().toString());
         usuario.setDate(nascimento.getText().toString());
         usuario.salvar();
+
+        Intent intent = new Intent(QuestionRegisterActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
