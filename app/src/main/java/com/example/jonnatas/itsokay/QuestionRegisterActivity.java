@@ -182,7 +182,7 @@ public class QuestionRegisterActivity extends AppCompatActivity {
         usuario.setDate(nascimento.getText().toString());
         usuario.salvar();
 
-        Intent intent = new Intent(QuestionRegisterActivity.this, MainActivity.class);
+        Intent intent = new Intent(QuestionRegisterActivity.this, InicioActivity.class);
         startActivity(intent);
     }
 }
