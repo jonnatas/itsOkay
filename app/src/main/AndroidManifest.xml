@@ -17,7 +17,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".QuestionRegisterActivity">
+        <activity android:name=".QuestionRegisterActivity" />
+        <activity
+            android:name=".InicioActivity"
+            android:label="@string/title_activity_inicio"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.jonnatas.itsokay.MainActivity" />
         </activity>
     </application>
 
