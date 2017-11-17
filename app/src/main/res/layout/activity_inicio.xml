@@ -36,19 +36,19 @@
                 android:id="@+id/tabItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@mipmap/ic_notifications_none_black_24dp" />
+                android:icon="@mipmap/ic_notifications_active_white_24dp" />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@mipmap/ic_sentiment_very_satisfied_black_24dp" />
+                android:icon="@mipmap/ic_sentiment_very_satisfied_white_24dp" />
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tabItem3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@mipmap/ic_star_border_black_24dp" />
+                android:icon="@mipmap/ic_star_white_24dp" />
 
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
