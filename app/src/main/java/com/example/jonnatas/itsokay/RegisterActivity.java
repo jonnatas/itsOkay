@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                             usuario.setId(user.getUid());
 
                             Toast.makeText(RegisterActivity.this, R.string.successfully_registred, Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, InicioActivity.class);
                             intent.putExtra("email", email);
                             startActivity(intent);
 
