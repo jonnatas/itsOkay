@@ -10,7 +10,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jonnatas.itsokay.config.ConfiguracaoFirebase;
+import com.example.jonnatas.itsokay.model.Tarefa;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -44,6 +48,26 @@ public class Tab1Tarefas extends Fragment {
         );
 
         listView.setAdapter(adapter);
+
+        reference = ConfiguracaoFirebase.getFirebase().child("tarefas");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                tarefas.clear();
+
+                for (DataSnapshot dados: dataSnapshot.getChildren()) {
+                    Tarefa tarefa = dados.getValue(Tarefa.class);
+                    tarefas.add(tarefa.getEnunciado());
+                }
+
+                adapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         return rootView;
     }
