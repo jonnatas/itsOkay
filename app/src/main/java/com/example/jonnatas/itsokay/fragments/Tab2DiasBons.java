@@ -1,10 +1,12 @@
-package com.example.jonnatas.itsokay;
+package com.example.jonnatas.itsokay.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.jonnatas.itsokay.R;
 
 /**
  * Created by jonnatas on 17/11/17.

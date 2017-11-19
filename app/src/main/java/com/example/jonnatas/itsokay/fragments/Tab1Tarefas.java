@@ -1,4 +1,4 @@
-package com.example.jonnatas.itsokay;
+package com.example.jonnatas.itsokay.fragments;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.jonnatas.itsokay.R;
 import com.example.jonnatas.itsokay.adapter.TarefaAdapter;
 import com.example.jonnatas.itsokay.config.ConfiguracaoFirebase;
 import com.example.jonnatas.itsokay.model.Tarefa;
