@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -69,11 +72,25 @@ public class RegisterActivity extends AppCompatActivity {
 
                             Toast.makeText(RegisterActivity.this, R.string.successfully_registred, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, InicioActivity.class);
-                            intent.putExtra("email", email);
+                            intent.putExtra("id", usuario.getId());
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(RegisterActivity.this, R.string.regristration_error, Toast.LENGTH_SHORT).show();
+                            String erroExececao = "";
+                            try {
+                                throw task.getException();
+
+                            } catch (FirebaseAuthWeakPasswordException e) {
+                                erroExececao = "Digite uma senha mais forte, contento letras e numeros";
+                            } catch (FirebaseAuthInvalidCredentialsException e) {
+                                erroExececao = "Email invalido, digite um novo email";
+                            } catch (FirebaseAuthUserCollisionException e) {
+                                erroExececao = "Email já esta em uso";
+                            } catch (Exception e) {
+                                erroExececao = "Erro ao efetuar o cadastro";
+                                e.printStackTrace();
+                            }
+                            Toast.makeText(RegisterActivity.this, "Opps! " + erroExececao, Toast.LENGTH_LONG).show();
                         }
                     }
                 });
