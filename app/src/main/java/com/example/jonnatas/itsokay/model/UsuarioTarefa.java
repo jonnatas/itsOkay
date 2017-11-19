@@ -10,7 +10,7 @@ import com.google.firebase.database.DatabaseReference;
 public class UsuarioTarefa {
     private String tarefa_id;
     private String usuario_id;
-    private String resposta;
+    private Boolean resposta;
 
     public UsuarioTarefa() {
     }
@@ -24,11 +24,11 @@ public class UsuarioTarefa {
         return tarefa_id;
     }
 
-    public String getResposta() {
+    public Boolean getResposta() {
         return resposta;
     }
 
-    public void setResposta(String resposta) {
+    public void setResposta(Boolean resposta) {
         this.resposta = resposta;
     }
 

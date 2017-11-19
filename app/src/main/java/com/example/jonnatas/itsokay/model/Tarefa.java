@@ -3,6 +3,8 @@ package com.example.jonnatas.itsokay.model;
 import com.example.jonnatas.itsokay.config.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.Date;
+
 import static java.lang.String.valueOf;
 
 /**
@@ -12,6 +14,7 @@ import static java.lang.String.valueOf;
 public class Tarefa {
     private Integer id;
     private String enunciado;
+    private Date date;
 
     public Tarefa() {
     }
@@ -23,6 +26,14 @@ public class Tarefa {
 
     public Integer getId() {
         return id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setId(Integer id) {
