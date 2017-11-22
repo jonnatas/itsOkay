@@ -10,7 +10,7 @@
         android:id="@+id/constraint_layout_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.jonnatas.itsokay.LoginActivity">
+        tools:context="com.example.jonnatas.itsokay.activity.LoginActivity">
 
         <EditText
             android:id="@+id/editTextLogin"

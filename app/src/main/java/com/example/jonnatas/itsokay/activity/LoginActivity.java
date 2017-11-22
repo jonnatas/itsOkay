@@ -1,6 +1,5 @@
-package com.example.jonnatas.itsokay;
+package com.example.jonnatas.itsokay.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.jonnatas.itsokay.R;
 import com.example.jonnatas.itsokay.config.ConfiguracaoFirebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
@@ -97,7 +98,17 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, InicioActivity.class);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(LoginActivity.this, R.string.regristration_error, Toast.LENGTH_SHORT).show();
+                            String message = "";
+                            try {
+                                throw task.getException();
+                            } catch (FirebaseAuthInvalidCredentialsException e) {
+                                message = "Senha ou email invalidos";
+                                e.printStackTrace();
+                            } catch (Exception e) {
+                                message = "Não foi possivel realizar o login, por favor tente mais tarde.";
+                                e.printStackTrace();
+                            }
+                            Toast.makeText(LoginActivity.this, message , Toast.LENGTH_LONG).show();
                         }
                     }
                 });

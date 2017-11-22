@@ -1,4 +1,4 @@
-package com.example.jonnatas.itsokay;
+package com.example.jonnatas.itsokay.activity;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
@@ -13,6 +13,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.jonnatas.itsokay.R;
+import com.example.jonnatas.itsokay.fragments.Tab1Tarefas;
+import com.example.jonnatas.itsokay.fragments.Tab2DiasBons;
+import com.example.jonnatas.itsokay.fragments.Tab3Conquistas;
 import com.example.jonnatas.itsokay.config.ConfiguracaoFirebase;
 import com.google.firebase.auth.FirebaseAuth;
 

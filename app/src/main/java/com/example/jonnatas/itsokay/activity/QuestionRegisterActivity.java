@@ -1,4 +1,4 @@
-package com.example.jonnatas.itsokay;
+package com.example.jonnatas.itsokay.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,14 +8,12 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.jonnatas.itsokay.R;
 import com.example.jonnatas.itsokay.config.ConfiguracaoFirebase;
 import com.example.jonnatas.itsokay.model.Usuario;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
