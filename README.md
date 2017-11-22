@@ -17,3 +17,4 @@ https://trello.com/b/dbwhjnd6/itsokay
 
 ## Requisitos
 https://docs.google.com/document/d/1VwRq0OoK2BaNuB6dFobzZNXhZwrHC2NjhAbSOrYRXOE/edit?usp=sharing
+https://github.com/jonnatas/itsOkay/blob/Inicio/Requisitos/requisitos.md
