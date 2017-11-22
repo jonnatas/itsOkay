@@ -11,3 +11,9 @@ Nome:							GitHub
 * Vinícius Vilela Medeiros Sotero			@vinivilelams
 * Lieverton Santos Silva 				      @lievertom
 * Gustavo Veloso Alves				        @gustable42
+
+## Link Trello
+https://trello.com/b/dbwhjnd6/itsokay
+
+## Requisitos
+https://docs.google.com/document/d/1VwRq0OoK2BaNuB6dFobzZNXhZwrHC2NjhAbSOrYRXOE/edit?usp=sharing
