@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,10 +32,33 @@ public class Tab1Tarefas extends Fragment {
     private ListView listView;
     private ArrayAdapter adapter;
     private ArrayList<Tarefa> tarefas;
+    private TextView cb1;
+    private TextView cb2;
+    private Button botao;
+    private CheckBox CB1;
+    private CheckBox CB2;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View V = inflater.inflate(R.layout.activity_inicio, container,false);
+        cb1 = (TextView) V.findViewById(R.id.checkBox1);
+        cb2 = (TextView) V.findViewById(R.id.checkBox2);
+        botao = (Button) V.findViewById(R.id.button);
+        botao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cb1.setText("Texto 1");
+                if(CB1.isChecked()) {
+                    cb1.setText("Checado");
+                }
+                cb2.setText("Texto 2");
+                if(CB2.isChecked()) {
+                    cb2.setText("Checado");
+                }
+            }
+        });
 
         View rootView = inflater.inflate(R.layout.tabs1tarefas, container, false);
 

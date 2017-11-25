@@ -44,4 +44,9 @@
     <string name="tab_text_1">Tarefas</string>
     <string name="tab_text_2">Sequência de dias bons</string>
     <string name="tab_text_3">Conquistas</string>
+    <string name="CB1">teste</string>
+    <string name="CB2">teste</string>
+    <string name="Botao">Go</string>
+    <string name="cb2" />
+    <string name="cb1" />
 </resources>
