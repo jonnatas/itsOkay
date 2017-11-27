@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:layout_margin="10dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textColor="@android:color/holo_blue_dark"
@@ -43,9 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="4"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textColor="@android:color/holo_blue_light"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="Descrição" />
         </LinearLayout>
