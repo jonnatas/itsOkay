@@ -4,7 +4,7 @@ package com.example.jonnatas.itsokay.model;
  * Created by jonnatas on 27/11/17.
  */
 
-public class Conquistas {
+public class Conquista {
     private String titulo;
     private String descricao;
     private String imagem;

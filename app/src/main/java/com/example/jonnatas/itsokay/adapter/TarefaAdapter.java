@@ -29,7 +29,7 @@ public class TarefaAdapter extends ArrayAdapter<Tarefa> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        View view = null;
+        View view = convertView;
 
         if (tarefas!= null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
