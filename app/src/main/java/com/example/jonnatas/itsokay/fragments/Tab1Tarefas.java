@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class Tab1Tarefas extends Fragment {
 
-    DatabaseReference reference;
+    private DatabaseReference reference;
     private ListView listView;
     private ArrayAdapter adapter;
     private ArrayList<Tarefa> tarefas;
@@ -44,11 +44,6 @@ public class Tab1Tarefas extends Fragment {
         tarefas = new ArrayList<>();
 
         listView = (ListView) rootView.findViewById(R.id.lv_tarefas);
-        /*adapter = new ArrayAdapter(
-                getActivity(),
-                android.R.layout.simple_list_item_checked,
-                tarefas
-        );*/
         adapter = new TarefaAdapter(getActivity(), tarefas);
         listView.setAdapter(adapter);
         reference = ConfiguracaoFirebase.getFirebase().child("tarefas");

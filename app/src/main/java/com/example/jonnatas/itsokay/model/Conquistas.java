@@ -8,6 +8,15 @@ public class Conquistas {
     private String titulo;
     private String descricao;
     private String imagem;
+    private Boolean completa;
+
+    public Boolean getCompleta() {
+        return completa;
+    }
+
+    public void setCompleta(Boolean completa) {
+        this.completa = completa;
+    }
 
     public String getTitulo() {
         return titulo;
