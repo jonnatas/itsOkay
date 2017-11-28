@@ -72,11 +72,27 @@ public class Tab1Tarefas extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                reference = ConfiguracaoFirebase.getFirebase().child("usuario_tarefa");
-                boolean checkMark;
-                reference.child(Integer.valueOf(position+1).toString())
+                reference = ConfiguracaoFirebase.getFirebase()
+                        .child("usuario_tarefa")
+                        .child(Integer.valueOf(position+1).toString())
                         .child(user.getUid())
-                        .child("resposta").setValue(true);
+                        .child("resposta");
+
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.getValue().toString() == "true") {
+                            reference.setValue(false);
+                        } else {
+                            reference.setValue(true);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
         return rootView;
