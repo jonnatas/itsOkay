@@ -17,7 +17,7 @@ https://trello.com/b/dbwhjnd6/itsokay
 
 ## Requisitos
 https://docs.google.com/document/d/1VwRq0OoK2BaNuB6dFobzZNXhZwrHC2NjhAbSOrYRXOE/edit?usp=sharing
-https://github.com/jonnatas/itsOkay/blob/Inicio/Requisitos/requisitos.md
+https://github.com/jonnatas/itsOkay/blob/master/Requisitos/RequisitosV2.md
 
 ## Modelo de Dados
 https://github.com/jonnatas/itsOkay/blob/Inicio/Pontos%20de%20controle/PC02/PC02.png
