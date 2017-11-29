@@ -2,12 +2,14 @@ package com.example.jonnatas.itsokay.fragments;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jonnatas.itsokay.R;
@@ -48,8 +50,11 @@ public class Tab1Tarefas extends Fragment {
         final FirebaseUser user = mAuth.getCurrentUser();
 
         listView = (ListView) rootView.findViewById(R.id.lv_tarefas);
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
         adapter = new TarefaAdapter(getActivity(), tarefas);
         listView.setAdapter(adapter);
+
         reference = ConfiguracaoFirebase.getFirebase().child("tarefas");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -72,6 +77,9 @@ public class Tab1Tarefas extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+
+                SparseBooleanArray checked = listView.getCheckedItemPositions();
+
                 reference = ConfiguracaoFirebase.getFirebase()
                         .child("usuario_tarefa")
                         .child(Integer.valueOf(position+1).toString())
@@ -83,9 +91,13 @@ public class Tab1Tarefas extends Fragment {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getValue().toString() == "true") {
                             reference.setValue(false);
+                            listView.setItemChecked(position, true);
+                            System.out.println(listView.getCheckedItemPosition());
                         } else {
                             reference.setValue(true);
+                            listView.setItemChecked(position, false);
                         }
+                        adapter.notifyDataSetChanged();
                     }
 
                     @Override

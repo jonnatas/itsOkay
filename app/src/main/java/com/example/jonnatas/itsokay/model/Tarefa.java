@@ -15,6 +15,7 @@ public class Tarefa {
     private Integer id;
     private String enunciado;
     private Date date;
+    private boolean isSelected;
 
     public Tarefa() {
     }
@@ -22,6 +23,14 @@ public class Tarefa {
     public void salvar() {
         DatabaseReference reference = ConfiguracaoFirebase.getFirebase();
         reference.child("tarefas").child(valueOf(getId())).setValue(this);
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
     public Integer getId() {
