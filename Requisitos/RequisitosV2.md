@@ -56,7 +56,7 @@ Tarefas tarefas atualizadas para o usuário.
 Critério de aceitação:
 Conquistas relacionadas as perguntas.
 
-### F02.US07 - Excluir metas.
+### F02.US07 - Excluir conquistas.
 	Eu como administrador desejo excluir conquistas, para corrigir possíveis erros no cadastro destas.
 Critério de aceitação:
 Conquistas excluídas.
