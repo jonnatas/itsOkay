@@ -24,7 +24,7 @@ Ajudar pessoas sofrendo com ansiedade.
 	EP01.F03 - Monitorar sequencia de dias bons.
  
 ## 4. Use Storie
-F01.US01 - Cadastrar tarefas
+### F01.US01 - Cadastrar tarefas
 	Eu como administrador desejo cadastrar tarefas, para que motivar os usuarios
 	
 Critério de aceitação:
